@@ -15,7 +15,6 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id');
             $table->string('company');
             $table->bigInteger('code');
             $table->string('vat');
@@ -23,6 +22,7 @@ class CreateCompaniesTable extends Migration
             $table->string('director');
             $table->longText('description');
             $table->string('logo')->nullable();
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

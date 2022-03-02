@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,10 @@ Route::get('/update/company/{company}',[CompanyController::class,'updateCompany'
 Route::post('/update/{company}',[CompanyController::class,'storeUpdate']);
 Route::get('/import',[CompanyController::class,'startImport']);
 Route::post('/dataFile',[CompanyController::class,'processImport']);
+Route::post('/company/{company}/comment',[CommentController::class,'create']);
+
+Auth::routes();
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home',[CompanyController::class,'index']);
